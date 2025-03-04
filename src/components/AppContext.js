@@ -1,10 +1,11 @@
-// context/AppContext.js
 import { createContext, useContext, useState } from 'react';
 
+// Create a Context
 const AppContext = createContext();
 
+// Create a Provider Component
 export const AppProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); // Example state
 
   return (
     <AppContext.Provider value={{ user, setUser }}>
@@ -13,6 +14,7 @@ export const AppProvider = ({ children }) => {
   );
 };
 
+// Create a custom hook to use the AppContext
 export const useAppContext = () => {
   return useContext(AppContext);
 };

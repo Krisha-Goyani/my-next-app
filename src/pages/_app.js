@@ -1,11 +1,13 @@
-// pages/_app.js
 import '../styles/globals.css';
-import { AppProvider } from '../context/AppContext';
+import { AppProvider } from '../components/AppContext';
+import { ProfileProvider } from '../context/ProfileContext';
 
 function MyApp({ Component, pageProps }) {
   return (
     <AppProvider>
-      <Component {...pageProps} />
+      <ProfileProvider>
+        <Component {...pageProps} />
+      </ProfileProvider>
     </AppProvider>
   );
 }
