@@ -1,26 +1,31 @@
-import Header from '../components/Header';
-import ProfileProvider from '../components/ProfileCard';
-import { useProfileContext } from '../context/ProfileContext';  
+import Header from "../components/Header";
+import HeroImage from "../components/HeroImage";
+import Name from "../components/Name";
+import About from "../components/About";
+import Languages from "../components/Languages";
+import PriceTable from "../components/PriceTable";
 
-export default function Home() {
-  const { profiles } = useProfileContext(); // Access profiles from context
+const HomePage = () => {
+   // Access profiles from context
 
   return (
-    <div>
+    <div className="container-1">
       <Header />
-      <div className="container mx-auto mt-4">
-        {profiles.map((profile) => (
-          <ProfileProvider 
-            key={profile.id}
-            name={profile.name}
-            rating={profile.rating}
-            reviews={profile.reviews}
-            experience={profile.experience}
-            location={profile.location}
-            about={profile.about}
-          />
-        ))}
+      <div className="px-65">
+        <HeroImage />
+        <div className="flex justify-between">
+          <div className="pl-9">
+            <Name />
+            <About />
+            <Languages />
+          </div>
+          <div className="w-[434px]">
+            <PriceTable />
+          </div>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default HomePage;
